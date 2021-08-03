@@ -1,0 +1,39 @@
+<div *ngIf="isMailsLoading" style="text-align: center; margin-top: 2%;">
+    <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div class="row" *ngIf="!isMailsLoading">
+    <div class="col-xs-12">
+        <div class="alert alert-success text-center m-3" role="alert" *ngIf="mailDeletedResponse">
+            {{ mailDeletedResponse }}
+        </div>
+        <!-- <mat-list class="mt-2 float-start">
+            <mat-list-item>
+                <app-mail-item *ngFor="let mail of mails" [mail]="mail"></app-mail-item>
+                lllllll
+            </mat-list-item>
+        </mat-list> -->
+        
+        <div class="container text-center my-5" *ngIf="!mails">
+            <p class="">Your folder is empty!!</p>
+            
+            <br>
+            <span class="text-secondary">Click on below 'compose' button to send a mail</span>
+            <br>
+            <button class="btn btn-primary my-3" (click)="onCompose()">Compose</button>
+        </div>
+
+        <div class="list-group" *ngIf="mails">
+            <div class="list-group-item">
+                <app-mail-item *ngFor="let mail of mails; let i = index" [mail]="mail" [id]=mail.id></app-mail-item>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 
+<div class="row">
+    <div class="col-xs-12">
+        <router-outlet></router-outlet>
+    </div>
+</div> -->
+

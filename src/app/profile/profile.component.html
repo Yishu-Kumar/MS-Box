@@ -1,0 +1,45 @@
+<app-data-loading-spinner *ngIf="isProfileLoading" style="text-align: center;"></app-data-loading-spinner>
+
+<div class="row" *ngIf="!isProfileLoading">
+    <div class="col-xs-12">
+        <div class="container text-center">
+            <div class="card m-4">
+                <div class="card-body">
+                    <img class="img-fluid" src="http://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Download-Image.png"
+                         alt="profile_img">
+                  
+                    <h2 class="card-header my-3">{{ profile ? profile?.name : 'User'}}</h2>
+
+                    <table class="table table-hover table text-center">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Gender</th>
+                                <td>{{ profile?.gender }}</td>
+                            </tr>
+                            
+                            <tr>
+                                <th scope="row">Date of Birth</th>
+                                <td>{{ profile?.dateOfBirth }}</td>
+                            </tr>
+                            
+                            <tr>
+                                <th scope="row">Phone Number</th>
+                                <td>{{ profile?.phoneNumber }}</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Email Address</th>
+                                <td>{{ profile?.email }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="container d-grid gap-2 my-3">
+                <button mat-raised-button color="primary" (click)="onUpdate()">Update</button>
+                <button mat-raised-button color="warn" (click)="onDelete()">Delete Account</button>
+            </div>
+        </div>
+    </div>
+</div>

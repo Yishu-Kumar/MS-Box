@@ -1,0 +1,8 @@
+.row {
+    background-color: #e2e2e2;
+}
+
+ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+

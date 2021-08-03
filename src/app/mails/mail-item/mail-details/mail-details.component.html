@@ -1,0 +1,26 @@
+<div class="row" *ngIf="mail">
+    <div class="col-xs-12">
+        <div class="btn d-flex justify-content-end m-2">
+            <button mat-raised-button color="warn" (click)="onDelete(mail.id)">Delete</button>
+        </div>
+
+        <mat-accordion class="example-headers-align m-3" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="fw-bold">
+                        <mat-icon>account_circle</mat-icon> {{ mail.from }}
+                    </mat-panel-title>
+                    <small class="mx-4 fw-bold">{{ mail.date }}</small>
+                </mat-expansion-panel-header>
+
+                <mat-panel-title><span class="fw-bold">To: </span> {{ mail.to }}</mat-panel-title>
+                <mat-panel-title class="mt-2"><span class="fw-bold">Subject: </span> {{ mail.subject }}
+                </mat-panel-title>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <div class="container my-5 mx-3">
+            <p>{{ mail.message }}</p>
+        </div>
+    </div>
+</div>

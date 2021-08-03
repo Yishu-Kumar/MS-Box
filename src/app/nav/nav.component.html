@@ -1,0 +1,67 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="logo fw-bold">MS Box</mat-toolbar>
+
+    <mat-nav-list>
+      <!-- <a mat-list-item href="#">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">email </mat-icon> All Mails
+      </a> -->
+      
+      <a mat-list-item  [routerLink]="['mails']" routerLinkActive="active">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">collections </mat-icon> Sent Mails
+      </a>
+      
+      <a mat-list-item [routerLink]="'new'" routerLinkActive="active">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">send </mat-icon> New Mail
+      </a>
+
+      <a mat-list-item [routerLink]="'settings'" routerLinkActive="active">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">settings </mat-icon> Settings
+      </a>
+      
+      <a mat-list-item (click)="logout()">
+        <mat-icon aria-hidden="false" aria-label="logout">logout </mat-icon> LogOut
+      </a>
+
+
+      <div class="position-absolute bottom-0">
+        <mat-divider></mat-divider>
+      
+        <a mat-list-item [routerLink]="['/login']" routerLinkActive="active" *ngIf="!isLogin && doLogin">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">login </mat-icon> Login
+        </a>
+
+        <a mat-list-item [routerLink]="['profile']" routerLinkActive="active" *ngIf="isLogin">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">account_box </mat-icon> Profile
+        </a>
+      
+        <a mat-list-item [routerLink]="'/signUp'" routerLinkActive="active" class="mb-5">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">control_point </mat-icon> New Account
+        </a>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">Mail Box</mat-icon>
+      </button>
+      <!-- <span>MailSender</span> -->
+      <a class="nav-link text-white d-flex justify-content-end" *ngIf="!isLogin && doLogin" routerLink="/login" routerLinkActive="active">Login</a>
+     
+      <a class="nav-link text-white d-flex justify-content-end" [routerLink]="['profile']" routerLinkActive="active" *ngIf="isLogin">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" class="mt-1">account_box </mat-icon> Profile
+      </a>
+    </mat-toolbar>
+
+    <!-- Add Content Here -->
+    <div class="main-content">
+      <!-- <router-outlet></router-outlet> -->
+      <app-mails></app-mails>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

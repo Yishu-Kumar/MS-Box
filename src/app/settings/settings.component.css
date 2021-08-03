@@ -1,0 +1,25 @@
+.container {
+    margin-right: 2%;
+}
+
+.card-title {
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+.card-title:hover {
+    background-color: lavender;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: blue;
+    font-size: larger;
+}
+

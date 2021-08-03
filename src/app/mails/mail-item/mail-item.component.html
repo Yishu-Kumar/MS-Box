@@ -1,0 +1,10 @@
+<a class="list-group-item list-group-item-action" [routerLink]="['/mail', id, 'details']" routerLinkActive="active">
+    <div class="row" *ngIf="mail">
+        <div class="col-xs-12">
+            <p><span class="fw-bold">{{ mail.from }}</span></p>
+            <p><small>{{ mail.subject }}</small></p>
+        </div>
+    </div>
+</a>
+
+
