@@ -15,10 +15,8 @@ public class EmailService {
 
         boolean status = false;
 
-        //Variable for gmail.
-        String host = "smtp.gmail.com"; //Host for "Gmail" server. "SMTP" -> "Simple Mail Transfer Protocol".
-
-        //Get the system properties.
+        String host = "smtp.gmail.com"; 
+        
         Properties properties = System.getProperties();
         
         properties.put("mail.smtp.host", host); 
@@ -32,7 +30,7 @@ public class EmailService {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() 
                 
-                return new PasswordAuthentication(login.getEmail(), login.getPassword()); //From which we want send email.
+                return new PasswordAuthentication(login.getEmail(), login.getPassword()); 
             }
         });
         
